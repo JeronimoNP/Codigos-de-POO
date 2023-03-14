@@ -34,7 +34,7 @@ public class Primeiro1 extends JFrame implements ActionListener{
         //botão limpar
         bLimpar = new JButton("Limpar");
         bLimpar.setToolTipText("Limpa os campos.");
-        bLimpar.addActionListener(this);
+        bLimpar.addActionListener(this);                    //Declarando que esse botão vai ter uma função quando apertado
         add(bLimpar);
         
         //botão Sair
@@ -55,8 +55,8 @@ public class Primeiro1 extends JFrame implements ActionListener{
     }
     
     @Override
-    public void actionPerformed(ActionEvent ae){
-                if(ae.getSource() == bSalvar){
+    public void actionPerformed(ActionEvent ae){                 //Criei um public para adicionar as funções dos botões
+        if(ae.getSource() == bSalvar){                           //Criado um laço para quando for apertar o botão ele abrir uma caixa mostrando salvo
             JOptionPane.showMessageDialog(this, "Salvo com sucesso!!");
         }else{
             if(ae.getSource()==bLimpar){
