@@ -28,16 +28,19 @@ public class Primeiro1 extends JFrame implements ActionListener{
         //botão salvar
         bSalvar = new JButton("Salvar"); //Adicionando o botão variavel
         bSalvar.setToolTipText("Salva os dados.");
+        bSalvar.addActionListener(this);
         add(bSalvar);               //adicionando ao programa
         
         //botão limpar
         bLimpar = new JButton("Limpar");
         bLimpar.setToolTipText("Limpa os campos.");
+        bLimpar.addActionListener(this);
         add(bLimpar);
         
         //botão Sair
         bSair = new JButton("Sair");
         bSair.setToolTipText("Sair do programa.");
+        bSair.addActionListener(this);
         add(bSair);
         
         
@@ -45,9 +48,26 @@ public class Primeiro1 extends JFrame implements ActionListener{
         setSize(800, 600);  //criação da tela!
         setVisible(true);
     } 
-    @Override
-    public static void main(){
+    
+    public static void main(String [] args){
         Primeiro1 s = new Primeiro1();
         s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+    
+    @Override
+    public void actionPerformed(ActionEvent ae){
+                if(ae.getSource() == bSalvar){
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso!!");
+        }else{
+            if(ae.getSource()==bLimpar){
+                lNome.setText("");
+                lSobre.setText("");
+            }else{
+                if(ae.getSource()==bLimpar){
+                    System.exit(0);
+                }
+            }
+        }
+    }
+    
 }
