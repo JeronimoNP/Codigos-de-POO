@@ -1,8 +1,11 @@
 package ifma.primeiro1;
 
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
-public class Primeiro1 extends JFrame {
+
+public class Primeiro1 extends JFrame implements ActionListener{
     
     JLabel lNome, lSobre;
     JTextField tfNome, tfSobre;
@@ -42,8 +45,8 @@ public class Primeiro1 extends JFrame {
         setSize(800, 600);  //criação da tela!
         setVisible(true);
     } 
-        
-    public static void main(String [] args){
+    @Override
+    public static void main(){
         Primeiro1 s = new Primeiro1();
         s.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
