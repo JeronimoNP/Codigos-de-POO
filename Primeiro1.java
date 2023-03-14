@@ -60,10 +60,10 @@ public class Primeiro1 extends JFrame implements ActionListener{
             JOptionPane.showMessageDialog(this, "Salvo com sucesso!!");
         }else{
             if(ae.getSource()==bLimpar){
-                lNome.setText("");
-                lSobre.setText("");
+                tfNome.setText("");
+                tfSobre.setText("");
             }else{
-                if(ae.getSource()==bLimpar){
+                if(ae.getSource()==bSair){
                     System.exit(0);
                 }
             }
