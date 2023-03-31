@@ -7,13 +7,19 @@ import javax.swing.*;
 
 public class Primeiro1 extends JFrame implements ActionListener{
     
-    JLabel lNome, lSobre;
+    JComboBox cbEst, cbCid;
+    JLabel lNome, lSobre, lEst, lCid;
     JTextField tfNome, tfSobre;
     JButton bSalvar, bLimpar, bSair;
+    
+    String [] ma = {"", "Imperatriz", "São Luiz", "Açailandia"};
+    String [] pi = {"", "teresina", "Floriano", "Luis"};
+    String [] ce = {"", "Fortaleza", "Sobral", "Tianguá"};
     
     public Primeiro1() {
         setLayout(new FlowLayout());
         
+
         //adicionando 
         lNome = new JLabel("Nome");           //Essa parte é para colocar a string na varialvel do nome
         add(lNome);                           //adicinando ao programa
@@ -24,6 +30,19 @@ public class Primeiro1 extends JFrame implements ActionListener{
         add(lSobre);
         tfSobre = new JTextField(10);
         add(tfSobre);
+        
+        //combo box
+        lEst = new JLabel("Estado");
+        add(lEst);
+        String [] est = {"", "Maranhão", "Piaui", "Ceará"};
+        cbEst = new JComboBox(est);
+        cbEst.addActionListener(this);
+        add(cbEst);
+        
+        lCid = new JLabel("Cidade");
+        add(lCid);
+        cbEst = new JComboBox();
+        add(cbEst);
         
         //botão salvar
         bSalvar = new JButton("Salvar"); //Adicionando o botão variavel
@@ -56,18 +75,27 @@ public class Primeiro1 extends JFrame implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae){                 //Criei um public para adicionar as funções dos botões
-        if(ae.getSource() == bSalvar){                           //Criado um laço para quando for apertar o botão ele abrir uma caixa mostrando salvo
-            JOptionPane.showMessageDialog(this, "Salvo com sucesso!!");
-        }else{
-            if(ae.getSource()==bLimpar){
+        
+        if(ae.getSource() == cbEst){
+         if(cbEst.getSelectedIndex() == 0){
+             cbCid.removeAllItems();
+         }else if(cbEst.getSelectedIndex() == 1){
+             cbCid.removeAllItems();
+             for(int i=0; i<=3; i++)
+                 cbCid.insertItemAt(ma[i], i);
+         } 
+         }
+        
+        if(ae.getSource() == bSalvar){
+            JOptionPane.showMessageDialog(this, "Salvo com sucesso!");
+            }else if(ae.getSource() == bLimpar){
                 tfNome.setText("");
                 tfSobre.setText("");
-            }else{
-                if(ae.getSource()==bSair){
-                    System.exit(0);
-                }
+                cbEst.setSelectedIndex(0);
+            }else if(ae.getSource() == tfNome){
+                tfSobre.requestFocus();
+            }else if(ae.getSource() == bSair){
+                System.exit(0);
             }
-        }
-    }
-    
+     }
 }
